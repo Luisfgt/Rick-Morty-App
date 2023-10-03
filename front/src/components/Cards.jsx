@@ -15,7 +15,6 @@ const Cards = ({ characters }) => {
                onClose={() => alert('Emulamos que se cierra la card')}
             />
          })}
-
       </div>
    )
 }
