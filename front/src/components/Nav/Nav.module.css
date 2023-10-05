@@ -1,0 +1,75 @@
+@import url("https://use.typekit.net/ywg7xtq.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    height: 11%;
+    width: 100%;
+    margin: 0%;
+    gap: 50px;
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(10px);
+    position: absolute;
+}
+
+.buttons {
+    all: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    color: #515151;
+    transition: 0.3s;
+    font-family: "roc-grotesk";
+    font-weight: 600;
+}
+
+.buttons:hover {
+    background-color: none;
+    color: #A9A9A9;
+    cursor: pointer;
+}
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.input {
+    all: initial;
+    width: 300px;
+    height: 45px;
+    border-radius: 51px;
+    color: #515151;
+    background: #FFF;
+    font-family: "roc-grotesk";
+    font-weight: 400;
+    font-size: small;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.input::placeholder {
+    color: #B1B1B1
+}
+
+.error {
+    position: absolute;
+    background-color: white;
+    color: #515151;
+    width: 300pxpx;
+}

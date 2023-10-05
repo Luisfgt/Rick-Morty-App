@@ -1,0 +1,80 @@
+@import url("https://use.typekit.net/ywg7xtq.css");
+
+.reproductor{
+    position: absolute;
+    width: 850px;
+    margin-right: 40px;
+}
+
+.video{
+    position: absolute;
+    width: 450px;
+    top: 50px;
+    margin-left: 25px;
+}
+
+video::-webkit-media-controls {
+    display: none;}
+
+.contenedorTV{
+    padding: 0%;
+    width: 480px ;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.image{
+    height: 255px;
+    width: auto;
+   
+}
+.cuadroInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 255px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    gap: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-bottom: 340px;
+}
+
+.textoInfo {
+    all: initial;
+    font-family: "roc-grotesk";
+    color: white;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.textoTitulo {
+    all: initial;
+    width: 150px;
+    word-wrap: break-word;
+    font-family: "roc-grotesk";
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+.capsulas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}

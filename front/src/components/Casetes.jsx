@@ -4,6 +4,7 @@ import miImagen from './VistaPrevisa/assets/Recurso 4.png'
 import miImagen2 from './VistaPrevisa/assets/Recurso 6.png'
 import miImagen3 from './VistaPrevisa/assets/Recurso 7.png'
 import miImagen4 from './VistaPrevisa/assets/Recurso 8.png'
+import { Link } from 'react-router-dom';
 
 
 const casetes = [
@@ -17,6 +18,7 @@ const casetes = [
 //que diseñé.
 
 const Casetes = ({ characters, onClose }) => {
+    
     let caseteIndex = 0;
     const imagenCombinada = characters.map(({ id, image, name }) => {
         const caseteImage = casetes[caseteIndex];
@@ -34,9 +36,11 @@ const Casetes = ({ characters, onClose }) => {
     // }
 
     return (
-        <div >
+        <>
             {imagenCombinada.map((images, index) => {
-                return <div
+                return(
+                    <Link to={`/detail/${images.id}`}> 
+                <div
                     key={index} className={style.container}>
                     <Caset
                         image={images.image}
@@ -45,8 +49,11 @@ const Casetes = ({ characters, onClose }) => {
                     <h1 className={style.texto}>{images.name}</h1>
                     <button className={style.borrar} onClick={() => onClose(images.id)}>X</button>
                 </div>
+                    </Link>
+                ) 
+                
             })}
-        </div>
+        </>
     );
 };
 
