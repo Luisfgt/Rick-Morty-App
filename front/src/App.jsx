@@ -1,15 +1,40 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import ContenedorPadre from './components/ContenedorPrincipal/Contenedor';
 import Nav from './components/Nav/Nav';
 import Detail from './views/Detail';
 import About from './views/About';
 import style from './styles.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ContenedorPadreDetail from './components/Detail/ContenedorPadreDetail';
+import Form from './components/About/Form/Form';
+
+
+
 
 function App() {
+  
+  // !Hooks
+  const [access, setAccess] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    !access && navigate ('/')
+  }, [access])
+
+  //Credenciales Fake
+
+  const username = 'luisft@gmail.com'
+  const password = 'luis1234'
+
+  function login(userData) {
+    if(userData.username === username && userData.password === password) {
+      setAccess(true);
+      navigate('/home');
+    }else{
+      alert('Credenciales incorrectas')
+    }
+  }
 
   const [characters, setCharacters] = useState([])
   console.log(characters);
@@ -38,15 +63,16 @@ function App() {
     onClose:onClose
   }
 
-
+  const location = useLocation();
 
   return (
     <div className={style.contenedor}>
-      <Nav onSearch={onSearch} />
+      {location.pathname !== '/' && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path='/home' element={<ContenedorPadre {...propiedadesPadre}/>}/>
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail {...propiedadesPadre}/>} />
+        <Route path='/' element={<Form login={login}/>} />
       </Routes>
     </div>
   )

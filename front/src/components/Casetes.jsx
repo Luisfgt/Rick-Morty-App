@@ -5,6 +5,10 @@ import miImagen2 from './VistaPrevisa/assets/Recurso 6.png'
 import miImagen3 from './VistaPrevisa/assets/Recurso 7.png'
 import miImagen4 from './VistaPrevisa/assets/Recurso 8.png'
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { addFav, removeFav } from '../redux/actions';
+import favCasete from './VistaPrevisa/assets/CassFav.png'
 
 
 const casetes = [
@@ -18,10 +22,18 @@ const casetes = [
 //que diseñé.
 
 const Casetes = ({ characters, onClose }) => {
+
     
+    //Escuchar el array de favoritos
+    const charactersFav = useSelector((state) => state.myFavorites)
+    console.log(charactersFav);
+
+
+
     let caseteIndex = 0;
     const imagenCombinada = characters.map(({ id, image, name }) => {
-        const caseteImage = casetes[caseteIndex];
+        const caseteImage = charactersFav.some((favorito) => favorito.id === id ) ? favCasete : casetes[caseteIndex];
+        console.log(charactersFav.some((favorito) => {console.log(favorito.id);}), typeof id);
         caseteIndex = (caseteIndex + 1) % casetes.length;
         return {
             image: image,
@@ -38,20 +50,21 @@ const Casetes = ({ characters, onClose }) => {
     return (
         <>
             {imagenCombinada.map((images, index) => {
-                return(
-                    <Link to={`/detail/${images.id}`}> 
-                <div
-                    key={index} className={style.container}>
-                    <Caset
-                        image={images.image}
-                    />
-                    <img src={images.caseteImage} alt="no se pudo :(" className={style.miImagen} />
-                    <h1 className={style.texto}>{images.name}</h1>
-                    <button className={style.borrar} onClick={() => onClose(images.id)}>X</button>
-                </div>
+                return (
+                    <Link to={`/detail/${images.id}`}>
+                        <div
+
+                            key={index} className={style.container}>
+                            <Caset
+                                image={images.image}
+                            />
+                            <img src={images.caseteImage} alt="no se pudo :(" className={style.miImagen} />
+                            <h1 className={style.texto}>{images.name}</h1>
+                            <button className={style.borrar} onClick={() => onClose(images.id)}>X</button>
+                        </div>
                     </Link>
-                ) 
-                
+                )
+
             })}
         </>
     );
