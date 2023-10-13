@@ -1,8 +1,8 @@
 import Form from "../components/About/Form/Form";
 
 function Login() {
-    return<>
-        <Form/>
-    </>
+    return (
+            <Form />
+    )
 }
 export default Login;

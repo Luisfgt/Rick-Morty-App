@@ -8,6 +8,7 @@ import style from './styles.module.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from './components/About/Form/Form';
+import FavoritesView from './views/FavoritesView';
 
 
 
@@ -72,6 +73,7 @@ function App() {
         <Route path='/home' element={<ContenedorPadre {...propiedadesPadre}/>}/>
         <Route path='/about' element={<About />} />
         <Route path='/detail/:id' element={<Detail {...propiedadesPadre}/>} />
+        <Route path='/Favorites' element={<FavoritesView/>} />
         <Route path='/' element={<Form login={login}/>} />
       </Routes>
     </div>

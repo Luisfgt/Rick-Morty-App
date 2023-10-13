@@ -5,6 +5,7 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 .success{
@@ -12,4 +13,32 @@
 }
 .error{
     border: 1px solid  red
+}
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-image: url(./LOGIN.png);
+}
+
+.logo {
+    height: auto;
+    width: 400px;
+
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 200px;
+    width: 400px;
+    
 }
