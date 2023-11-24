@@ -1,16 +1,21 @@
 import style from './VistaPrevia.module.css'
-import Casetes from '../Casetes'
+import style2 from '../ContenedorPrincipal/Contenedor.module.css'
+import Casetes from '../Casetes/Casetes'
+import ReproductorDetail from '../Detail/ReproductorDetail'
 
 
 
-
-const VistaPrevia = ({ characters, onClose }) => {
-
+const VistaPrevia = ({ characters, onClose, loadChar }) => {
+    console.log(loadChar);
     return (
-        <Casetes
-            characters={characters}
-            onClose={onClose}
-        />
+        <>
+            <Casetes
+                loadChar={loadChar}
+                characters={characters}
+                onClose={onClose}
+            />
+
+        </>
     )
 }
 

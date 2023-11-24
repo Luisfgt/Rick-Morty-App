@@ -1,3 +1,7 @@
+@import url("https://use.typekit.net/ywg7xtq.css");
+    /* font-family: "roc-grotesk"; */
+
+
 .form{
     display: flex;
     flex-direction: column;
@@ -5,8 +9,10 @@
     height: 100vh;
     align-items: center;
     justify-content: center;
-    gap: 30px;
 }
+
+
+.video
 
 .success{
     border: 1px solid green
@@ -24,21 +30,90 @@
     text-align: center;
     background-size: cover;
     background-position: center;
-    background-image: url(./LOGIN.png);
 }
 
-.logo {
-    height: auto;
-    width: 400px;
+.video {
+    position: fixed;
+    width: 100vw;
+    height: 125vh;
+    z-index: -1;
+    filter: brightness(0.3);
+}
 
+
+video::-webkit-media-controls {
+    display: none;}
+
+
+.logo {
+    position: relative;
+    height: auto;
+    width: 20vw;
+    top: -1vh;
+    z-index: 1;
+    
 }
 
 .formContainer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
-    height: 200px;
-    width: 400px;
-    
+    height: 35vh;
+    width: 19.9vw;
+    border-radius: 10px;
+    top: -8vh;
+}
+
+.internalForm{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 15vw;
+}
+
+.externalForm{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 2vh;
+    z-index: 5;
+}
+
+.input{
+    all: initial;
+    background: rgb(240, 240, 240);
+    box-sizing: border-box; 
+    font-family: "roc-grotesk";
+    width: 15vw;
+    max-width: 15vw;
+    height: 4vh;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 5;
+}
+
+.loginButton{
+    all: initial;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    font-family: "roc-grotesk";
+    border: 1px solid #9FD657;
+    border-radius: 0.5rem;
+    color: #9FD657;
+    top: 2rem;
+    transition: 200ms;
+}
+
+.loginButton:hover{
+    background-color: #9FD657;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #9FD657;
+
 }

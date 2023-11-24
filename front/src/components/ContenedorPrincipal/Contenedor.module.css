@@ -19,13 +19,15 @@
 .containerPadre {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-image: ;
     margin: 0 auto;
     text-align: center;
     background-image: url(./assets/Fondo.png);
     background-size: cover;
     background-position: center;
+    overflow: hidden;
 }
 
 
@@ -36,10 +38,6 @@
     height: 300px;
 }
 
-.tarjetas {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
 
 .contenedorTarjetas{
     display: grid;
@@ -59,5 +57,10 @@
     grid-column: 2/3;
     padding-top: 20%;
     overflow: hidden;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 

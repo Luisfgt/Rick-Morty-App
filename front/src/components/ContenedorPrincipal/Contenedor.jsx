@@ -4,26 +4,36 @@ import Nav from '../Nav/Nav';
 import { useState } from 'react';
 import axios from 'axios'
 import Reproductor from '../reproductor/reproductor';
+import TransitionComponent from '../TransitionComponent/transitionComponent';
+import reproductorTv from '../reproductor/TV.png'
+import Loader from '../Loader/Loader';
 
-const ContenedorPadre = ({characters, onClose}) => {
-    console.log(characters);
+
+const ContenedorPadre = ({ characters, onClose, loading, loadChar}) => {
+    console.log(loadChar);
+
+   
     return (
         <>
             <div className={style.containerPadre}>
-               
-                <div className={style.container}>
-                    <div className={style.contenedorTarjetas}>
-                        <div className={style.tarjetas}>
-                            <VistaPrevia
-                                characters={characters}
-                                onClose={onClose} />
+                <TransitionComponent>
+                    <div className={style.container}>
+                        <div className={style.contenedorTarjetas}>
+                            <div className={style.tarjetas}>
+                                <VistaPrevia
+                                    loadChar={loadChar}
+                                    characters={characters}
+                                    onClose={onClose} />
+                            </div>
+                        </div>
+                        <div className={style.containerTv}>
+                            <Reproductor
+                            reproductor={reproductorTv}
+                            />
                         </div>
                     </div>
-                    <div className={style.containerTv}>
-                        <Reproductor />
-                    </div>
+                </TransitionComponent>
 
-                </div>
             </div>
         </>
     )

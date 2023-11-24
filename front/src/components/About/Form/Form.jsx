@@ -1,52 +1,76 @@
-import { useState } from 'react';
-import style from './Form.module.css'
+import React, { useState } from 'react';
+import style from './Form.module.css';
 import validation from './validation';
-import logo from './Rick_and_Morty.svg.png'
+import caset from '../../../assets/caseteLogin.png';
+import videoLogin from './VideoTV_byn.mp4';
+
 
 function Form({ login }) {
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  });
 
-    const [userData, setUserData] = useState({
-        username: '',
-        password: '',
-    })
+  const [errors, setErrors] = useState({
+    email: '',
+    password: '',
+  });
 
-    const [errors, setErrors] = useState({
-        username: '',
-        password: '',
-    })
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setUserData({ ...userData, [name]: value });
+  };
 
-    const handleChange = (event) => {
-        const property = event.target.name;
-        const value = event.target.value;
-
-        setUserData({ ...userData, [property]: value })
-        validation({ ...userData, [property]: value }, errors, setErrors)
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (Object.values(errors).every((error) => error === '')) {
+      login(userData);
     }
+  };
 
 
-    return (
-        <div className={style.login}>
-            <div className={style.form}>
-                <img className={style.logo} src={logo} alt="" />
-                <div className={style.formContainer}>
-                    <form onSubmit={() => login(userData)}>
-                        <div>
-                            <label htmlFor="">Email:</label>
-                            <input type="text" name='username' value={userData.username} onChange={handleChange} className={errors.username ? style.error : style.success} />
-                        </div>
-                        <span>{errors.username}</span>
-                        <div>
-                            <label htmlFor="">Password</label>
-                            <input type="text" name='password' value={userData.password} onChange={handleChange} className={errors.password ? style.error : style.success} />
-                        </div>
-                        <span>{errors.password}</span>
-                        <button type="Submit">Login</button>
-                    </form>
-                </div>
+
+
+  
+
+  return (
+    <div className={style.login}>
+      <div className={style.form}>
+        <img className={style.logo} src={caset} alt="" />
+        <div className={style.formContainer}>
+          <form className={style.externalForm} onSubmit={handleSubmit}>
+            <div className={style.internalForm}>
+              <label htmlFor="email">Email</label>
+              <input
+                className={style.input}
+                type="text"
+                name="email"
+                value={userData.email}
+                onChange={handleChange}
+              />
             </div>
+            <span>{errors.email}</span>
+            <div className={style.internalForm}>
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                value={userData.password}
+                onChange={handleChange}
+                className={style.input}
+              />
+            </div>
+            <span>{errors.password}</span>
+            <button className={style.loginButton} type="submit">
+              Ingresar
+            </button>
+          </form>
         </div>
-    )
+      </div>
+      <video className={style.video} src={videoLogin} loop controls autoPlay muted>
+      </video>
+    </div>
+  );
 }
 
 export default Form;

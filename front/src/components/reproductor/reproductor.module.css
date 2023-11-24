@@ -6,6 +6,8 @@
     margin-right: 40px;
 }
 
+
+
 .video{
     position: absolute;
     width: 450px;
@@ -90,3 +92,6 @@ video::-webkit-media-controls {
     z-index: 100;
 }
 
+.botonFav:hover{
+    cursor: pointer;
+}

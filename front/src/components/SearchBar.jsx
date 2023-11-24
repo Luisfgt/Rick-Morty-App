@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch }) => {
    };
 
    const handlesKeyPress = (event) => {
-      if(event.key === 'Enter'){
+      if (event.key === 'Enter') {
          handleSearch();
       }
    }
@@ -28,8 +28,10 @@ const SearchBar = ({ onSearch }) => {
    return (
       <div className={style.searchBar}>
          <input onKeyDown={handlesKeyPress} value={id} placeholder="Introduce un número del 1 al 826" className={style.input} type='search' onChange={handleChange} />
-         <button className={style.buttons} onClick={handleSearch}>Add Character</button>
-      </div>
+         <div className={style.buttonContain}>
+            <div className={style.buttonAdd} onClick={handleSearch}></div>
+         </div>
+      </div >
    );
 }
 

@@ -61,3 +61,34 @@
     background-color: rgb(255, 115, 115);
 }
 
+.buttonFav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 10.1rem;
+    z-index: 10;
+    top: 37.1rem;
+    height: 5rem;
+}
+
+.buttonFavChild{
+    all: initial;
+    height: 6rem;
+    width: 3.4rem;
+}
+.buttonFavChild:hover{
+    cursor: pointer;
+}
+
+.noneDis{
+    display: none;
+}
+
+.loaderComp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 10vw;
+}

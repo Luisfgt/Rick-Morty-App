@@ -6,20 +6,49 @@
     box-sizing: border-box;
 }
 
-.navBar {
-    display: flex;
+.navBarAbout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     top: 0px;
-    height: 11%;
-    width: 100%;
+    height: 8vh;
+    width: 100vw;
+    min-height: 8vh;
     margin: 0%;
     gap: 50px;
-    background: rgba(255, 255, 255, 0.80);
+    background: rgba(26, 26, 26, 0.5);
     backdrop-filter: blur(10px);
     position: absolute;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
+.navBar{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    height: 8vh;
+    min-height: 8vh;
+    width: 100vw;
+    margin: 0%;
+    gap: 50px;
+    background: rgba(33, 13, 34, 0.5);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    z-index: 100;
+}
+
+.links{
+    display: flex;
+    justify-self: center;
+
+}   
 
 .buttons {
     all: initial;
@@ -31,7 +60,23 @@
     padding-left: 10px;
     padding-right: 10px;
     border: none;
-    color: #515151;
+    color: #9a9a9a;
+    transition: 0.3s;
+    font-family: "roc-grotesk";
+    font-weight: 600;
+}
+
+.selectedButtons{
+    all: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    color: #54DDB9;
     transition: 0.3s;
     font-family: "roc-grotesk";
     font-weight: 600;
@@ -47,20 +92,22 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    z-index: 1;
 }
 
 .input {
     all: initial;
-    width: 300px;
-    height: 45px;
-    border-radius: 51px;
+    width: 11vw;
+    height: 4vh;
+    border-radius: 0.5rem;
     color: #515151;
     background: #FFF;
     font-family: "roc-grotesk";
     font-weight: 400;
-    font-size: small;
-    padding-left: 30px;
-    padding-right: 30px;
+    font-size: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 0.1rem;
+    z-index: 1;
 }
 
 .input::placeholder {
@@ -84,8 +131,63 @@
     padding-left: 10px;
     padding-right: 10px;
     border: none;
-    color: #515151;
+    color: rgb(255, 254, 255);
     transition: 0.3s;
     font-family: "roc-grotesk";
     font-weight: 600;
+}
+.buttonsLogout:hover {
+    background-color: none;
+    color: rgb(255, 65, 151);
+    cursor: pointer;
+}
+
+.logo {
+    width: 10vw;
+    transition: 200ms;
+}
+.logo:hover {
+    scale: 1.2;
+}
+
+.logoutAndButton{
+    display: flex;
+    justify-self: flex-end;
+}
+
+.buttonAdd{
+    height: 3.1vh;
+    justify-self: flex-end;
+    width: 2vw;
+    background: url(../../assets/logoAdd.png) center center no-repeat;
+    background-size: contain;
+    overflow: hidden;
+}
+
+.buttonContain{
+    position: relative;
+    display: flex;
+    height: 4vh;
+    width: 4.1vw;
+    align-items: center;
+    justify-content: flex-end;
+    right: 3.3rem;
+    border-radius: 0.5rem;
+    padding-right: 0.3rem;
+    background-color: #38a588;
+    transition: 200ms;
+}
+
+.buttonContain:hover{
+    background-color: #4de2ba;;
+    cursor: pointer;
+}
+
+
+.add{
+    display: flex;
+}
+
+.logoutAndButtonOff{
+    display: none;
 }
